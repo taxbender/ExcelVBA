@@ -5,7 +5,6 @@ Function FileExist( _
 
     Dim fName As String
 
-
     FileExist = False
     
     FilePath = IIf(Right(FilePath, 1) <> "\", FilePath & "\", FilePath)
