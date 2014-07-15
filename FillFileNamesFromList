@@ -20,9 +20,11 @@ Sub FillFileNamesFromList()
     Dim strLink As String
 
     FirstRow = 2
-    LastRow = FindLastRow(1)
     NameCol = 5
     ResultCol = 18
+    
+    'Find the last row in the NameCol
+    LastRow = FindLastRow(NameCol)
     
     SearchFolder = "V:\Corporate\Tax\Private\Indirect Tax\Projects\Axip - Audit - TX - 2010 to 2013-02\Expenses\OH\Invoices\"
 
