@@ -5,7 +5,11 @@ Sub FillFileNamesFromList()
     
     'NOTE: If there are file with the same name but different extension, 
     '  the last extension listed in the array is passed back to the result 
-    '  column. In the code below, PDF will override (trump) tif 
+    '  column. In the code below, PDF will over-right (trump) tif 
+    
+    'Requires the following additiona functions
+    '  FindLastRow
+    '  FileExist
     
     Dim FirstRow As Long
     Dim LastRow As Long
@@ -26,7 +30,7 @@ Sub FillFileNamesFromList()
     'Find the last row in the NameCol
     LastRow = FindLastRow(NameCol)
     
-    SearchFolder = "V:\Corporate\Tax\Private\Indirect Tax\Projects\Axip - Audit - TX - 2010 to 2013-02\Expenses\OH\Invoices\"
+    SearchFolder = "Path to Folder"
 
     'Defines the file type to search for.
     FileTypes(1) = "tif"
