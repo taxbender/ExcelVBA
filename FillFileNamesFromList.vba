@@ -10,29 +10,36 @@ Sub FillFileNamesFromList()
     'Requires the following additiona functions
     '  FindLastRow
     '  FileExist
-    
+
     Dim FirstRow As Long
     Dim LastRow As Long
     Dim iRow As Long
     Dim iFileType As Long
     Dim FileTypeCnt As Long
-    Dim NameCol As Long
-    Dim ResultCol As Long
+    Dim SearchCol As Long
+    Dim LinkCol As Long
+    Dim FileNameCol As Long
     Dim FileTypes(1 To 5) As String
     Dim SearchFolder As String
-    Dim FileName As String
+    Dim SearchName As String
     Dim strLink As String
+    Dim IncludeHyperLink As Boolean
+    Dim HyperLinkCol As Long
 
-    FirstRow = 2
-    NameCol = 5
-    ResultCol = 18
+    'Settings: These must be defined
+    FirstRow = 2                         'First row with data to search
+    SearchCol = 11                       'Column where search names exist
+    FileNameCol = 5                      'Column where the file name will be placed
+    IncludeHyperLink = True              'Option to include a hyperlink to the file
+    HyperLinkCol = 6                     'Column where hyperlinks will be placed (Must be set if above is True)
     
     'Find the last row in the NameCol
-    LastRow = FindLastRow(NameCol)
+    LastRow = FindLastRow(SearchCol)
     
-    SearchFolder = "Path to Folder"
+    'Folder where the files are located. Be sure to add the trailing "\"
+    SearchFolder = "V:\Corporate\Tax\Private\Indirect Tax\Projects\Axip - Audit - TX - 2010 to 2013-02\Invoices_Expenses\"
 
-    'Defines the file type to search for.
+    'Defines the file type to search for. Add more as needed.
     FileTypes(1) = "tif"
     FileTypes(2) = "pdf"
     FileTypes(3) = ""
@@ -41,24 +48,24 @@ Sub FillFileNamesFromList()
 
 
     For iRow = FirstRow To LastRow
-        FileName = Cells(iRow, NameCol)
+        SearchName = Cells(iRow, SearchCol)
             
         For iFileType = LBound(FileTypes) To UBound(FileTypes)
             If FileTypes(iFileType) <> "" Then
                 
-                If FileExist(SearchFolder, FileName, FileTypes(iFileType)) Then
+                If FileExist(SearchFolder, SearchName, FileTypes(iFileType)) Then
                     
-                    'Uncomment to put filename in the result cell
-                    'Cells(iRow, ResultCol) = FileName & "." & FileTypes(iFileType)
+                    Cells(iRow, FileNameCol) = SearchName & "." & FileTypes(iFileType)
                         
-                    'Uncomment and modify as needed to add file hyperlink
-                    strLink = "=HyperLink(" & Chr(34) & "Invoices\" & _
-                        FileName & "." & FileTypes(iFileType) & Chr(34) & ")"
-                    
-                    Cells(iRow, ResultCol + 1).Formula = strLink
-                    
+                    'Includes hyperlink to file if set to true
+                    If IncludeHyperLink Then
+                        strLink = "=HyperLink(" & Chr(34) & SearchFolder & _
+                            SearchName & "." & FileTypes(iFileType) & Chr(34) & "," & _
+                            Chr(34) & "Link" & Chr(34) & ")"
+                        
+                        Cells(iRow, HyperLinkCol).Formula = strLink
+                    End If
                 End If
-            
             End If
         Next
     Next
