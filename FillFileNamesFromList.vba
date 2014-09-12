@@ -5,7 +5,7 @@ Sub FillFileNamesFromList()
     
     'NOTE: If there are file with the same name but different extension, 
     '  the last extension listed in the array is passed back to the result 
-    '  column. In the code below, PDF will over-right (trump) tif 
+    '  column. In the code below, PDF will override (trump) tif 
     
     Dim FirstRow As Long
     Dim LastRow As Long
