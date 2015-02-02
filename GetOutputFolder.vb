@@ -1,4 +1,4 @@
-Function GetFolder(Optional startFolder As Variant = -1) As Variant
+Function GetOutputFolder(Optional startFolder As Variant = -1) As Variant
     
     Dim fldr As FileDialog
     Dim vItem As Variant
@@ -20,6 +20,6 @@ Function GetFolder(Optional startFolder As Variant = -1) As Variant
         vItem = .SelectedItems(1)
     End With
 NextCode:
-    GetFolder = vItem
+    GetOutputFolder = vItem
     Set fldr = Nothing
 End Function
