@@ -9,7 +9,7 @@ Declare Function WNetGetUser Lib "mpr.dll" _
 
 Const NoError = 0       'The Function call was successful
 
-Public Function GetUserName() 'As String
+Function GetUserName() 'As String
   If gEnableErrorHandling Then On Error GoTo errHandler
 
   Const lpnlength As Integer = 255                                      ' Buffer size for the return string
