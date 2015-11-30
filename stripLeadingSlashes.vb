@@ -21,5 +21,4 @@ Private Function stripLeadingSlashes(ByVal strText As String) As String
     
 exitMe:
                                                 'Nothing to clean up
-
 End Function
