@@ -20,8 +20,8 @@ Dim srcPath As String
 Dim destPath As String
 Dim srcFile As String
 
-srcPath = "C:\Users\akeene\Documents\OLAttachments\"
-destPath = "C:\Users\akeene\Documents\OLAttachments\Invoices\"
+srcPath = "C:\Users\xxxx\Documents\OLAttachments\"
+destPath = "C:\Users\xxxx\Documents\OLAttachments\Invoices\"
 
 ext = Array("*.pdf")
 
