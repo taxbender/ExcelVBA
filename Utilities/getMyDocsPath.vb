@@ -1,7 +1,7 @@
 Public Function getMyDocsPath() As String
   
   '******************************************************************************
-  ' Description: Retreives current user's My Documents path without trailing "/"
+  ' Description:  Retreives current user's My Documents path without trailing "/"
   '
   ' Author:       taxbender
   ' Contributors:
