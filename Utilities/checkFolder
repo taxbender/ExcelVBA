@@ -1,7 +1,7 @@
 Public Function checkFolder(strFolderPath As String) As Boolean
 
   '******************************************************************************
-  ' Description: Check if folder path exists
+  ' Description:  Check if folder path exists
   '
   ' Author:       taxbender
   ' Contributors:
