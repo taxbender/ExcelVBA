@@ -6,7 +6,7 @@ Private Function padText(textToPad As String, _
   '******************************************************************************
   ' Description:  Adds leading or trailing spaces to a text string
   '
-  ' Author:       Aaron Keene
+  ' Author:       taxbender
   ' Contributors:
   ' Sources:
   ' Last Updated: 12/30/2015
