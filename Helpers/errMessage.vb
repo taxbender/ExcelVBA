@@ -46,6 +46,7 @@ Public Sub errMessage(Optional ByVal routineName As String, _
   Close #1
   
 exitMe:
+  Set fso = Nothing
   Exit Sub
   
 errHandler:
