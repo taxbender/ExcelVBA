@@ -13,6 +13,7 @@ Public Sub errMessage(Optional ByVal routineName As String, _
   ' Last Updated: 12/30/2015
   ' Dependencies: Ref - Microsoft Scripting Runtime
   '               Func - checkFolder
+  '               Func - padText
   ' Known Issues: None
   '******************************************************************************
   
