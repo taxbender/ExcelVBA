@@ -1,7 +1,8 @@
 Public Sub errMessage(Optional ByVal routineName As String, _
                       Optional ByVal errNumber As String, _
                       Optional ByVal errDescription As String, _
-                      Optional ByVal errText As String)
+                      Optional ByVal errText As String, _
+                      Optional ByVal errLogPath as String = "")
   
   '******************************************************************************
   ' Description:  Writes error message to specifed log file
@@ -11,6 +12,7 @@ Public Sub errMessage(Optional ByVal routineName As String, _
   ' Sources:
   ' Last Updated: 12/30/2015
   ' Dependencies: Ref - Microsoft Scripting Runtime
+  '               Func - checkFolder
   ' Known Issues: None
   '******************************************************************************
   
@@ -19,11 +21,11 @@ Public Sub errMessage(Optional ByVal routineName As String, _
   Dim fso As Scripting.File
   Dim errLogFile As String
   Dim errLogMessage As String
-  Dim errLogPath As String
-  
+
   '*** Check for log folder; If not found, create it; If no app folder, exit
-  
-  errLogPath = 'Path to log folder; Don't forget the trailing "\"
+  If errLogPath = "" Then
+    Application.ActiveWorkbook.Path
+  End If
   
   If Not checkFolder(errLogPath) Then
     createFolder errLogPath
