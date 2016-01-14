@@ -1,5 +1,5 @@
-Function getFolder(Optional dialogTitle As String = "Browse", _
-                   Optional dialogButtonName As String = "OK", _
+Function getFolder(Optional dialogTitle As String = vbNullString, _
+                   Optional dialogButtonName As String = vbNullString, _
                    Optional dialogStartFolder As String = vbNullString, _
                    Optional dialogView As MsoFileDialogView = msoFileDialogViewList) As String
     
@@ -13,18 +13,18 @@ Function getFolder(Optional dialogTitle As String = "Browse", _
   ' Dependencies: Var - cEnableErrorHandling
   ' Known Issues: None
   '****************************************************************************
-
-    
+  
   If cEnableErrorHandling Then On Error Resume Next
  
   Dim folderSelection As Variant
   
   With Application.FileDialog(msoFileDialogFolderPicker)
     
-    .Title = dialogTitle
-    .InitialView = msoFileDialogViewList
+    If dialogTitle <> vbNullString Then: .Title = dialogTitle
+    If dialogButtonName <> vbNullString Then: .ButtonName = dialogButtonName
+      
+    .InitialView = dialogView
     .AllowMultiSelect = False
-    .ButtonName = dialogButtonName
     
     If dialogStartFolder <> vbNullString Then
       If Dir(dialogStartFolder, vbDirectory) <> vbNullString Then
