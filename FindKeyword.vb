@@ -19,7 +19,7 @@ Function FindKeyword( _
         End If
     Next Word
     
-    'Reuturn "" when no words arefound in the TextString
+    'Return "" when no words are found in the TextString
     If FindKeyword = 0 Then
         FindKeyword = ""
     End If
